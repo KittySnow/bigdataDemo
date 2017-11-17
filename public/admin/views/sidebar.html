@@ -1,0 +1,78 @@
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+        <div class="image-avatar image">
+            <img src="./img/timg.png" class="img-circle" alt="User Image" />
+            <span><i class="fa fa-circle text-success"></i>
+            </span>
+        </div>
+        <div class="info">
+            <p class="text-center">
+                <span>您好，欢迎您</span>
+            </p>
+            <ul class="profile-list">
+                <li>
+                    <a href="#nowhere" data-toggle="tooltip" data-placement="top" title="用户信息">
+                        <span data-toggle="modal" data-target="#myModal"><i class="fontello-user-outline"></i>
+                        </span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="#nowhere" data-toggle="tooltip" data-placement="top" title="设置">
+                        <span data-toggle="modal" data-target="#setting"><i class="fontello-wrench-outline"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="pages/login.html" data-toggle="tooltip" data-placement="top" title="注销">
+                        <span><i class="fontello-power-outline"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SIDEBAR MENU: : style can be found in sidebar.less -->
+    <ul id="menu" class="sidebar-menu">
+        <li>
+            <a href="#!/dashboard" ng-class="{activeSmall:part == 'dashboard'}">
+                <i class="fa fontello-desktop-1"></i> 
+                <span>后台管理</span>
+            </a>
+        </li>
+        <li>
+            <a href="#!/BimProject/projectList" ng-class="{activeSmall:part == 'BimProject'}">
+                <i class="fa fontello-desktop-1"></i>
+                <span>项目管理</span>
+            </a>
+        </li>
+	</ul>
+</section>
+<!-- /.sidebar -->
+
+<script>
+/* Sidebar tree view */
+(function($) {
+    $(".sidebar .treeview").tree();
+})(jQuery);
+
+$('#menu').slicknav();
+//Activate tooltips
+$("[data-toggle='tooltip']").tooltip();
+
+function fix_sidebar() {
+    //Make sure the body tag has the .fixed class
+    if (!$("body").hasClass("fixed")) {
+        return;
+    }
+
+    //Add slimscroll
+    $(".sidebar").slimscroll({
+        height: ($(window).height() - $(".header").height()) + "px",
+        color: "rgba(0,0,0,0.3)"
+    });
+}
+</script>
